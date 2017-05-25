@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import AppBar from 'material-ui/AppBar';
 
 export default class Header extends Component {
   render() {
     return (
       <div>
-        <h2>vilib</h2>
-
-        <Link to="/">Home Page</Link> -&nbsp;
-        <Link to="/another">Another Page</Link>
+        <AppBar
+          title="vilib"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
       </div>
     );
   }

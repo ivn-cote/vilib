@@ -1,9 +1,10 @@
 import reduxCrud from 'redux-crud';
+import _uniqueId from 'lodash/uniqueId';
 const baseActionCreators = reduxCrud.actionCreatorsFor('movies');
 
 const mockMovies = [
   {
-    id: 1,
+    id: 42,
     title: 'Matrix',
     quote: 'There is no spoon',
     producer: 'Vachovsky Brothers',
@@ -17,6 +18,14 @@ const actionCreators = {
     return function updateAction(dispatch) {
       dispatch(baseActionCreators.fetchStart());
       setTimeout(() => dispatch(baseActionCreators.fetchSuccess(mockMovies)), 1000);
+    };
+  },
+
+  create() {
+    return function createAction(dispatch) {
+      const virtualMovie = Object.assign({}, mockMovies[0], { id: _uniqueId() });
+      dispatch(baseActionCreators.createStart(virtualMovie));
+      setTimeout(() => dispatch(baseActionCreators.createSuccess(virtualMovie)), 1000);
     };
   }
 };
