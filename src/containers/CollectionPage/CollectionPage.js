@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import * as CollectionActions from '../../actions/collection';
+import * as collectionActions from '../../actions/collection';
 import wrapActionCreators from '../../utils/wrapActionCreators';
 
 import style from './CollectionPage.scss';
@@ -32,7 +32,7 @@ const connector = connect(
   state => ({
     collection: state.collection
   }),
-  wrapActionCreators(CollectionActions)
+  wrapActionCreators(collectionActions)
 );
 
 export default connector(CollectionPage);
