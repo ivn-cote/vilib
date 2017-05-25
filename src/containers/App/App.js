@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import cssModules from 'react-css-modules';
 import Header from '../../components/Header';
 import styles from './App.scss';
@@ -15,11 +16,13 @@ export default class App extends Component {
     const { children, styles } = this.props;
 
     return (
-      <div className={styles.container}>
-        <Header />
+      <MuiThemeProvider>
+        <div className={styles.container}>
+            <Header />
 
-        {children}
-      </div>
+            {children}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

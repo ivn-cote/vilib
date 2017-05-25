@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+
 import collectionActions from '../../actions/collection';
 import wrapActionCreators from '../../utils/wrapActionCreators';
 import style from './CollectionPage.scss';
