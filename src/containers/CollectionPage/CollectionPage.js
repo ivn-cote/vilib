@@ -6,10 +6,7 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
 
 import style from './CollectionPage.scss';
 
-@connect(state => ({
-  collection: state.collection
-}), wrapActionCreators(CollectionActions))
-export default class CollectionPage extends Component {
+class CollectionPage extends Component {
   componentWillMount() {
     this.props.fetch();
   }
@@ -27,6 +24,15 @@ export default class CollectionPage extends Component {
 }
 
 CollectionPage.propTypes = {
-  collection: PropTypes.array.isRequired,
+  collection: PropTypes.object.isRequired,
   fetch: PropTypes.func.isRequired
 };
+
+const connector = connect(
+  state => ({
+    collection: state.collection
+  }),
+  wrapActionCreators(CollectionActions)
+);
+
+export default connector(CollectionPage);
