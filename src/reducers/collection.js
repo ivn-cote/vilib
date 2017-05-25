@@ -1,19 +1,13 @@
-import { handleActions } from 'redux-actions';
-import { fetch } from '../actions/collection';
+import reduxCrud from 'redux-crud';
 
-const mockMovies = [
-  {
-    title: 'Matrix',
-    producer: 'Vachovsky Brothers',
-    year: 1999,
-    rating: 10
+const standardReducers = reduxCrud.List.reducersFor('movies');
+
+function reducers(state = [], action) {
+  switch (action.type) {
+
+    default:
+      return standardReducers(state, action);
   }
-];
+}
 
-const initialState = {
-  movies: []
-};
-
-export default handleActions({
-  [fetch]: state => Object.assign({}, state, { movies: mockMovies })
-}, initialState);
+export default reducers;
