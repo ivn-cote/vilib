@@ -14,11 +14,11 @@ export default class Counter extends Component {
   };
 
   render() {
-    const { counter, increment, decrement, incrementAsync, styles } = this.props;
+    const { counter: { counterValue }, increment, decrement, incrementAsync, styles } = this.props;
 
     return (
       <p>
-        <span className={styles.Counter}>Counter: {counter}</span>
+        <span className={styles.Counter}>Counter: {counterValue}</span>
         <button className={styles.button} onClick={() => increment()}>+</button>
         <button className={styles.button} onClick={() => decrement()}>-</button>
         <button className={styles.button} onClick={() => incrementAsync()}>Increment async</button>

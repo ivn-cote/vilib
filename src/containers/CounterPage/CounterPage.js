@@ -8,6 +8,7 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
   counter: state.counter
 }), wrapActionCreators(CounterActions))
 export default class CounterPage extends Component {
+
   render() {
     return (
       <Counter {...this.props} />
