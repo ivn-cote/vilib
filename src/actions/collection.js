@@ -5,9 +5,10 @@ const mockMovies = [
   {
     id: 1,
     title: 'Matrix',
+    quote: 'There is no spoon',
     producer: 'Vachovsky Brothers',
     year: 1999,
-    rating: 10
+    description: 'nerdy overengineering film'
   }
 ];
 

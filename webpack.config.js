@@ -44,6 +44,15 @@ const config = port => ({
         exclude: /node_modules/
       },
       {
+        test: /\.(woff2?|ttf|eot|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 10240 },
+          }
+        ]
+      },
+      {
         test: /\.scss$/,
         use: [
           'style-loader?sourceMap',
@@ -51,7 +60,7 @@ const config = port => ({
         ]
       }
     ]
-  },
+  }
 });
 
 module.exports = detect(DEFAULT_PORT).then(port => {

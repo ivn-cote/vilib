@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
+import CinemaCard from '../../components/CinemaCard';
 import collectionActions from '../../actions/collection';
 import wrapActionCreators from '../../utils/wrapActionCreators';
 import style from './CollectionPage.scss';
@@ -17,6 +18,9 @@ class CollectionPage extends Component {
     return (
       <div className={style.CollectionPage}>
         <h4>Movie Collection</h4>
+        {
+          collection.map(item => <CinemaCard key={item.id} {...item} />)
+        }
         <p>{collection.length} item(s) in your collection</p>
       </div>
     );
