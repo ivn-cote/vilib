@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cssModules from 'react-css-modules';
-import styles from '../style/counter.scss';
+import styles from './Counter.scss';
 
 @cssModules(styles)
 export default class Counter extends Component {
@@ -18,7 +18,7 @@ export default class Counter extends Component {
 
     return (
       <p>
-        <span className={styles.counter}>Counter: {counter}</span>
+        <span className={styles.Counter}>Counter: {counter}</span>
         <button className={styles.button} onClick={() => increment()}>+</button>
         <button className={styles.button} onClick={() => decrement()}>-</button>
         <button className={styles.button} onClick={() => incrementAsync()}>Increment async</button>

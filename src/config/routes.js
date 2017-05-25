@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CounterPage from '../containers/CounterPage';
-import AnotherPage from '../containers/AnotherPage';
-import NotFoundPage from '../containers/NotFoundPage';
+import AnotherPage from '../components/AnotherPage';
+import NotFoundPage from '../components/NotFoundPage';
 
 export default (
   <Switch>

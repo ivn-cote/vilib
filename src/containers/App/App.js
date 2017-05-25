@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cssModules from 'react-css-modules';
-import Header from '../components/Header';
-import styles from '../style/index.scss';
+import Header from '../../components/Header';
+import styles from './App.scss';
 
 @cssModules(styles)
 export default class App extends Component {

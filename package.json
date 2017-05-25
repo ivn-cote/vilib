@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
+    "scaffold:component": "yo not-bad-react-component",
     "start": "webpack-dev-server --open",
     "clean": "rimraf dist",
     "lint": "eslint src test",
