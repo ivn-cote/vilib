@@ -1,6 +1,7 @@
 # vilib
+### React SPA to manage your movie collection
 
-
+The user should be able to CRUD movies and upload multiple pictures for each of her films.
 
 ## Requirements
 

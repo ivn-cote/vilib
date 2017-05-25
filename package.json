@@ -1,7 +1,9 @@
 {
   "name": "vilib",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "React SPA to manage your movie collection",
+  "author": "Ivan Kotov",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
