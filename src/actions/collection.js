@@ -1,4 +1,5 @@
 import reduxCrud from 'redux-crud';
+import { push, goBack } from 'react-router-redux';
 const baseActionCreators = reduxCrud.actionCreatorsFor('movies');
 
 const mockMovies = [
@@ -32,7 +33,7 @@ const actionCreators = {
       dispatch(baseActionCreators.updateStart(recordToUpd));
       setTimeout(() => {
         dispatch(baseActionCreators.updateSuccess(recordToUpd));
-        // window.history.back();
+        dispatch(goBack());
       }, 300);
     };
   },
@@ -43,7 +44,7 @@ const actionCreators = {
 
       setTimeout(() => {
         dispatch(baseActionCreators.createSuccess(newRecord));
-        window.history.back();
+        dispatch(goBack());
       }, 300);
     };
   }
