@@ -7,8 +7,8 @@ import styles from './CollectionControl.scss';
 
 
 const CollectionControl = ({ onAdd }) => (
-  <div className={styles.CollectionControl}>
-    <FloatingActionButton secondary className={styles.CreateBtn} onClick={onAdd}>
+  <div className={styles.CollectionControl} onClick={onAdd}>
+    <FloatingActionButton secondary className={styles.CreateBtn}>
       <ContentAdd />
     </FloatingActionButton>
   </div>

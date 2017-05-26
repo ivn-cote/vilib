@@ -55,6 +55,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "enzyme": "^2.8.2",
     "history": "^4.6.1",
     "material-ui": "^0.18.1",
     "prop-types": "^15.5.8",

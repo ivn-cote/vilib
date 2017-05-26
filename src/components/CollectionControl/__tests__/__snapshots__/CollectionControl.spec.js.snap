@@ -3,6 +3,7 @@
 exports[`<CollectionControl /> should have a proper markup 1`] = `
 <div
   className="CollectionControl"
+  onClick={[Function]}
 >
   <div
     className="CreateBtn"
