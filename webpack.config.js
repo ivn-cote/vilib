@@ -48,7 +48,7 @@ const config = port => ({
         use: [
           {
             loader: 'url-loader',
-            options: { limit: 10240 },
+            options: { limit: 10240 }
           }
         ]
       },

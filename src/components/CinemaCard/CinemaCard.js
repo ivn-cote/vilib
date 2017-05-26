@@ -37,7 +37,7 @@ CinemaCard.propTypes = {
   description: PropTypes.string.isRequired
 };
 
-CinemaCard.propTypes = {
+CinemaCard.defaultProps = {
   className: ''
 };
 export default CinemaCard;
