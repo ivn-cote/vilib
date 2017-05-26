@@ -8,15 +8,21 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
 import styles from './CreatePage.scss';
 
 
-const CreatePage = ({ create }) => (
+const CreatePage = ({ create, history }) => (
   <div className={styles.CreatePage}>
     <h4>Add a new movie:</h4>
-    <MovieForm onSubmit={create} />
+    {/* history shoud not be here, but there is a bug, see action/collection.js */}
+    <MovieForm onSubmit={(data) => {
+      history.goBack();
+      create(data);
+    }}
+    />
   </div>
 );
 
 CreatePage.propTypes = {
-  create: PropTypes.func.isRequired
+  create: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const connector = connect(

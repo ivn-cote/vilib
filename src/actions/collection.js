@@ -33,7 +33,8 @@ const actionCreators = {
       dispatch(baseActionCreators.updateStart(recordToUpd));
       setTimeout(() => {
         dispatch(baseActionCreators.updateSuccess(recordToUpd));
-        dispatch(goBack());
+        // seems like a bug: URI is changing, but ReactRouter do not react
+        // dispatch(goBack());
       }, 300);
     };
   },
@@ -44,7 +45,7 @@ const actionCreators = {
 
       setTimeout(() => {
         dispatch(baseActionCreators.createSuccess(newRecord));
-        dispatch(goBack());
+        // dispatch(goBack());
       }, 300);
     };
   }

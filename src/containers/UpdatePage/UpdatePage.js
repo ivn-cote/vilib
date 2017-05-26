@@ -9,20 +9,27 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
 import styles from './UpdatePage.scss';
 
 
-const UpdatePage = ({ updateItem, match, collection }) => {
+const UpdatePage = ({ updateItem, match, collection, history }) => {
   const item = _find(collection, { id: match.params.id * 1 });
 
   return (
     <div className={styles.UpdatePage}>
       <h4>Edit information:</h4>
-      <MovieForm onSubmit={updateItem} data={item} submitLabel="Update" />
+      {/* history shoud not be here, but there is a bug, see action/collection.js */}
+      <MovieForm onSubmit={(data) => {
+        history.goBack();
+        updateItem(data);
+      }}
+        data={item} submitLabel="Update"
+      />
     </div>
   );
 };
 
 UpdatePage.propTypes = {
   updateItem: PropTypes.func.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const connector = connect(
