@@ -8,7 +8,7 @@ import App from './App';
 import routes from '../config/routes.js';
 
 export default class Root extends Component {
-  componentDidMount() {
+  componentWillMount() {
     injectTapEventPlugin();
   }
 
