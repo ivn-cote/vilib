@@ -10,8 +10,8 @@ import {
 import FlatButton from 'material-ui/FlatButton';
 import styles from './CinemaCard.scss';
 
-const CinemaCard = ({ title, quote, producer, year, description }) => (
-  <Card>
+const CinemaCard = ({ className, title, quote, producer, year, description }) => (
+  <Card className={`${styles.CinemaCard} ${className}`}>
     <CardMedia
       overlay={<CardTitle title={quote} />}
     >
@@ -29,6 +29,7 @@ const CinemaCard = ({ title, quote, producer, year, description }) => (
 );
 
 CinemaCard.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
   producer: PropTypes.string.isRequired,
@@ -36,4 +37,7 @@ CinemaCard.propTypes = {
   description: PropTypes.string.isRequired
 };
 
+CinemaCard.propTypes = {
+  className: ''
+};
 export default CinemaCard;
