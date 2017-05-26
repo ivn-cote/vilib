@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import CinemaCard from '../../components/CinemaCard';
 
 import styles from './MoviesList.scss';
-console.log(styles)
 
 const MoviesList = ({ list }) => (
   <div className={styles.MoviesList}>
