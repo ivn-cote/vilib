@@ -20,9 +20,7 @@ CreatePage.propTypes = {
 };
 
 const connector = connect(
-  ({ collection }) => ({
-    collection
-  }),
+  () => ({}),
   wrapActionCreators(collectionActions)
 );
 

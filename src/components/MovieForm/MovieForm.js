@@ -37,13 +37,17 @@ const fieldsModel = [
 ];
 
 class MovieForm extends PureComponent {
-  state = {
-    id: + Date(),
-    title: '',
-    quote: '',
-    producer: '',
-    year: '',
-    description: ''
+  constructor(props) {
+    super(props);
+
+    this.state = Object.assign({
+      id: Date.now(),
+      title: '',
+      quote: '',
+      producer: '',
+      year: '',
+      description: ''
+    }, props.data);
   }
 
   @autobind
@@ -60,6 +64,8 @@ class MovieForm extends PureComponent {
   }
 
   render() {
+    const { submitLabel } = this.props;
+
     return (
       <form className={styles.MovieForm} onSubmit={this.handleSubmit}>
         {
@@ -70,6 +76,7 @@ class MovieForm extends PureComponent {
                 key={field}
                 onChange={_partial(this.handleField, field)}
                 {...fieldProps}
+                defaultValue={this.state[field]}
                 fullWidth
               />
             );
@@ -77,9 +84,9 @@ class MovieForm extends PureComponent {
         }
 
         <RaisedButton
-          label="Create"
-          fullWidth
+          label={submitLabel}
           type="submit"
+          fullWidth
         />
       </form>
     );
@@ -88,7 +95,12 @@ class MovieForm extends PureComponent {
 
 
 MovieForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  submitLabel: PropTypes.string
+};
+
+MovieForm.defaultProps = {
+  submitLabel: 'Create'
 };
 
 export default MovieForm;

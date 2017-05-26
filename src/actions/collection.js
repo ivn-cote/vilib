@@ -27,6 +27,16 @@ const actionCreators = {
     };
   },
 
+  updateItem(recordToUpd) {
+    return function updateAction(dispatch) {
+      dispatch(baseActionCreators.updateStart(recordToUpd));
+      setTimeout(() => {
+        dispatch(baseActionCreators.updateSuccess(recordToUpd));
+        // window.history.back();
+      }, 300);
+    };
+  },
+
   create(newRecord) {
     return function createAction(dispatch) {
       dispatch(baseActionCreators.createStart(newRecord));

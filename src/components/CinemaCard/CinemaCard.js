@@ -2,6 +2,7 @@ import React from 'react';
 import _partial from 'lodash/partial';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
   Card,
   CardActions,
@@ -15,7 +16,9 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
 
 import styles from './CinemaCard.scss';
 
-const CinemaCard = ({ className, id, title, quote, producer, year, description, deleteItem }) => (
+const CinemaCard = ({ className, id, title, quote, producer, year, description,
+  deleteItem, history }) => (
+
   <Card className={`${styles.CinemaCard} ${className}`}>
     <CardMedia
       overlay={<CardTitle title={quote} />}
@@ -27,7 +30,7 @@ const CinemaCard = ({ className, id, title, quote, producer, year, description, 
       {description}
     </CardText>
     <CardActions>
-      <FlatButton label="Update" />
+      <FlatButton label="Update" onClick={() => history.push(`/upd/${id}`)} />
       <FlatButton label="Delete" onClick={_partial(deleteItem, { id })} />
     </CardActions>
   </Card>
@@ -41,7 +44,8 @@ CinemaCard.propTypes = {
   producer: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  deleteItem: PropTypes.func.isRequired
+  deleteItem: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 CinemaCard.defaultProps = {
@@ -53,4 +57,4 @@ const connector = connect(
   wrapActionCreators(collectionActions)
 );
 
-export default connector(CinemaCard);
+export default connector(withRouter(CinemaCard));
