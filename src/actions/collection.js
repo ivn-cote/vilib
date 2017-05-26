@@ -7,7 +7,7 @@ const mockMovies = [
     title: 'Matrix',
     quote: 'There is no spoon',
     producer: 'Wachowsky',
-    year: 1999,
+    year: '1999',
     description: 'nerdy overengineering film'
   }
 ];

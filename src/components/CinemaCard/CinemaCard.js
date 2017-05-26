@@ -34,7 +34,7 @@ const CinemaCard = ({ className, id, title, quote, producer, year, description, 
 );
 
 CinemaCard.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,

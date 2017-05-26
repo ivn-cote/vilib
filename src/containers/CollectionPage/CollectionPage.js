@@ -5,15 +5,9 @@ import { connect } from 'react-redux';
 
 import CollectionControl from '../../components/CollectionControl';
 import MoviesList from '../../components/MoviesList';
-import collectionActions from '../../actions/collection';
-import wrapActionCreators from '../../utils/wrapActionCreators';
 import styles from './CollectionPage.scss';
 
 class CollectionPage extends Component {
-  componentWillMount() {
-    this.props.fetch();
-  }
-
   @autobind
   goCreate() {
     this.props.history.push('/create');
@@ -33,15 +27,13 @@ class CollectionPage extends Component {
 
 CollectionPage.propTypes = {
   collection: PropTypes.array.isRequired,
-  fetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
 const connector = connect(
   ({ collection }) => ({
     collection
-  }),
-  wrapActionCreators(collectionActions)
+  })
 );
 
 export default connector(CollectionPage);

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { autobind, debounce } from 'core-decorators';
 import _partial from 'lodash/partial';
-import _uniqueId from 'lodash/uniqueId';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { PropTypes } from 'prop-types';
@@ -39,7 +38,7 @@ const fieldsModel = [
 
 class MovieForm extends PureComponent {
   state = {
-    id: _uniqueId(),
+    id: + Date(),
     title: '',
     quote: '',
     producer: '',
