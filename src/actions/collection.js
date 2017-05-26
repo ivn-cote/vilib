@@ -20,6 +20,13 @@ const actionCreators = {
     };
   },
 
+  deleteItem(recordToDelete) {
+    return function deleteAction(dispatch) {
+      dispatch(baseActionCreators.deleteStart(recordToDelete));
+      setTimeout(() => dispatch(baseActionCreators.deleteSuccess(recordToDelete)), 1000);
+    };
+  },
+
   create(newRecord) {
     return function createAction(dispatch) {
       dispatch(baseActionCreators.createStart(newRecord));
