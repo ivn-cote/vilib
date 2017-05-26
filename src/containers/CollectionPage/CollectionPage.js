@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { autobind } from 'core-decorators';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -13,12 +14,17 @@ class CollectionPage extends Component {
     this.props.fetch();
   }
 
+  @autobind
+  goCreate() {
+    this.props.history.push('/create');
+  }
+
   render() {
-    const { collection, create } = this.props;
+    const { collection } = this.props;
 
     return (
       <div className={styles.CollectionPage}>
-        <CollectionControl onAdd={create} />
+        <CollectionControl onAdd={this.goCreate} />
         <MoviesList list={collection} />
       </div>
     );
@@ -28,7 +34,7 @@ class CollectionPage extends Component {
 CollectionPage.propTypes = {
   collection: PropTypes.array.isRequired,
   fetch: PropTypes.func.isRequired,
-  create: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired
 };
 
 const connector = connect(

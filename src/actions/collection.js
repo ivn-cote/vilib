@@ -1,5 +1,4 @@
 import reduxCrud from 'redux-crud';
-import _uniqueId from 'lodash/uniqueId';
 const baseActionCreators = reduxCrud.actionCreatorsFor('movies');
 
 const mockMovies = [
@@ -21,11 +20,14 @@ const actionCreators = {
     };
   },
 
-  create() {
+  create(newRecord) {
     return function createAction(dispatch) {
-      const virtualMovie = Object.assign({}, mockMovies[0], { id: _uniqueId() });
-      dispatch(baseActionCreators.createStart(virtualMovie));
-      setTimeout(() => dispatch(baseActionCreators.createSuccess(virtualMovie)), 1000);
+      dispatch(baseActionCreators.createStart(newRecord));
+
+      setTimeout(() => {
+        dispatch(baseActionCreators.createSuccess(newRecord));
+        window.history.back();
+      }, 300);
     };
   }
 };

@@ -8,15 +8,15 @@ import wrapActionCreators from '../../utils/wrapActionCreators';
 import styles from './CreatePage.scss';
 
 
-const CreatePage = ({ createStart }) => (
+const CreatePage = ({ create }) => (
   <div className={styles.CreatePage}>
     <h4>Add a new movie:</h4>
-    <MovieForm onSubmit={createStart} />
+    <MovieForm onSubmit={create} />
   </div>
 );
 
 CreatePage.propTypes = {
-  createStart: PropTypes.func.isRequired
+  create: PropTypes.func.isRequired
 };
 
 const connector = connect(
