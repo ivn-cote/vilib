@@ -14,7 +14,7 @@ const UpdatePage = ({ updateItem, match, collection }) => {
 
   return (
     <div className={styles.UpdatePage}>
-      <h4>Edit information: {match.params.id}</h4>
+      <h4>Edit information:</h4>
       <MovieForm onSubmit={updateItem} data={item} submitLabel="Update" />
     </div>
   );
